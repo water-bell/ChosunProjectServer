@@ -7,7 +7,7 @@
 #include <map>
 #include <vector>
 #include <iostream>
-//#include "DBConnector.h"
+#include "DBConnector.h"
 #include "IOCP_Base.h"
 #include "CommonClass.h"
 
@@ -28,7 +28,7 @@ private:
 	static cCharactersInfo  CharactersInfo;
 	static map<int, SOCKET> SessionSocket;
 	static int				Damage;
-	//static DBConnector Conn; 
+	static DBConnector		Conn; 
 	static CRITICAL_SECTION csPlayers;
 
 	FuncProcess				fnProcess[160];

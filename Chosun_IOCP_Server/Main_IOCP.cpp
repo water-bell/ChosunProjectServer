@@ -9,7 +9,7 @@
 int					MainIOCP::Damage = 0;
 map<int, SOCKET>	MainIOCP::SessionSocket;
 cCharactersInfo		MainIOCP::CharactersInfo;
-//DBConnector		MainIOCP::Conn;
+DBConnector			MainIOCP::Conn;
 CRITICAL_SECTION	MainIOCP::csPlayers;
 
 unsigned int WINAPI CallWorkerThread(LPVOID p)
@@ -48,7 +48,7 @@ MainIOCP::~MainIOCP()
 		hWorkerHandle = NULL;
 	}
 
-	//Conn.Close();
+	Conn.Close();
 }
 
 void MainIOCP::StartServer()
