@@ -24,7 +24,14 @@ MainIOCP::MainIOCP()
 	InitializeCriticalSection(&csPlayers);
 
 	//DB접속 코드 작성
-
+	if (Conn.Connect(DB_ADDRESS, DB_ID, DB_PW, DB_SCHEMA, DB_PORT))
+	{
+		printf_s("[INFO] DB 접속 성공\n");
+	}
+	else
+	{
+		printf_s("[ERROR] DB 접속 실패\n");
+	}
 
 	//패킷 함수 포인터에 함수 할당
 	fnProcess[EPacketType::SIGNUP].funcProcessPacket = SignUp;
@@ -171,4 +178,55 @@ void MainIOCP::WorkerThread()
 
 		Recv(pSocketInfo);
 	}
+}
+
+void MainIOCP::SignUp(stringstream& RecvStream, stSOCKETINFO* pSocket)
+{
+	string Id;
+	string Pw;
+
+	RecvStream >> Id;
+	RecvStream >> Pw;
+	
+	printf_s("[INFO] 회원 가입 시도 %s / %s\n", Id, Pw);
+
+	stringstream SendStream;
+	SendStream << EPacketType::SIGNUP << endl;
+	SendStream << Conn.SignUpAccount(Id, Pw) << endl;
+
+	CopyMemory(pSocket->messageBuffer, (CHAR*)SendStream.str().c_str(), SendStream.str().length());
+	pSocket->dataBuf.buf = pSocket->messageBuffer;
+	pSocket->dataBuf.len = SendStream.str().length();
+
+	Send(pSocket);
+}
+
+void MainIOCP::Login(stringstream& RecvStream, stSOCKETINFO* pSocket)
+{
+	string Id;
+	string Pw;
+
+	RecvStream >> Id;
+	RecvStream >> Pw;
+
+	printf_s("[INFO] 로그인 시도 %s / %s\n", Id, Pw);
+
+	stringstream SendStream;
+	SendStream << EPacketType::LOGIN << endl;
+	SendStream << Conn.SignUpAccount(Id, Pw) << endl;
+
+	CopyMemory(pSocket->messageBuffer, (CHAR*)SendStream.str().c_str(), SendStream.str().length());
+	pSocket->dataBuf.buf = pSocket->messageBuffer;
+	pSocket->dataBuf.len = SendStream.str().length();
+
+	Send(pSocket);
+}
+
+void MainIOCP::LogoutCharacter(stringstream& RecvStream, stSOCKETINFO* pSocket)
+{
+	int SessionId;
+	RecvStream >> SessionId;
+	
+	printf_s("[INFO] '%d' 로그아웃 요청\n", SessionId);
+	SessionSocket.erase(SessionId);
 }

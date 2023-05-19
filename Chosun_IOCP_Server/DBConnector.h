@@ -21,7 +21,7 @@ public:
 	void Close();
 
 	bool SearchAccount(const string& Id, const string& Password);
-	bool SingUpAccount(const string& Id, const string& Password);
+	bool SignUpAccount(const string& Id, const string& Password);
 
 private:
 	MYSQL*		Conn;

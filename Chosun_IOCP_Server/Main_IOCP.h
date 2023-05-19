@@ -13,6 +13,12 @@
 
 using namespace std;
 
+#define DB_ADDRESS		"localhost"
+#define DB_PORT			3306
+#define DB_ID			"root"
+#define	DB_PW			"arsenal"
+#define DB_SCHEMA		"account_info"
+
 class MainIOCP : public IOCPBase
 {
 public:
