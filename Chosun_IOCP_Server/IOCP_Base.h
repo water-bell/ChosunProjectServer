@@ -14,7 +14,7 @@
 using namespace std;
 
 #define	MAX_BUFFER		4096
-#define SERVER_PORT		8000
+#define SERVER_PORT		25000
 #define MAX_CLIENTS		100
 
 //IOCP 소켓 구조체

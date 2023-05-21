@@ -47,20 +47,21 @@ bool IOCPBase::Initialize()
 	//소켓 바인딩
 	SOCKADDR_IN svaddr = { 0 };
 	svaddr.sin_family = AF_INET;
-	svaddr.sin_port = htons(1111); // 서버 포트# 정의 후 수정 필요
+	svaddr.sin_port = htons(SERVER_PORT); 
 	svaddr.sin_addr.S_un.S_addr = htonl(INADDR_ANY);
 	if (::bind(ListenSocket, (SOCKADDR*)&svaddr, sizeof(svaddr)) == SOCKET_ERROR)
 	{
 		printf_s("ERROR: 소켓에 IP주소와 포트#을 바인드할 수 없습니다.");
 		return 0;
 	}
+	printf_s("바인딩 완료\n");
 	//접속 대기 상태로 전환
 	if (::listen(ListenSocket, SOMAXCONN) == SOCKET_ERROR)
 	{
 		printf_s("ERROR: 리슨 상태로 전환할 수 없습니다.");
 		return 0;
 	}
-	
+	printf_s("리슨 상태 전환");
 	return TRUE;
 }
 
@@ -70,7 +71,7 @@ void IOCPBase::StartServer()
 	int nAddrLen = sizeof(clientaddr);
 	SOCKET clientSocket = 0;
 	DWORD recvBytes;
-	DWORD flags;
+	DWORD flags = 0;
 	int nReceive = 0;
 
 	hIOCP = CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0, 0);

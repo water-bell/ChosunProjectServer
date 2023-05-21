@@ -139,7 +139,7 @@ void MainIOCP::WorkerThread()
 
 		if (!bResult && recvBytes == 0)
 		{
-			printf_s("[INFO] socket #%d Á¢¼Ó ²÷¾îÁü\n", pSocketInfo->socket);
+			printf_s("[INFO] socket %d Á¢¼Ó ²÷¾îÁü\n", pSocketInfo->socket);
 			closesocket(pSocketInfo->socket);
 			free(pSocketInfo);
 			continue;
@@ -229,4 +229,19 @@ void MainIOCP::LogoutCharacter(stringstream& RecvStream, stSOCKETINFO* pSocket)
 	
 	printf_s("[INFO] '%d' ·Î±×¾Æ¿ô ¿äÃ»\n", SessionId);
 	SessionSocket.erase(SessionId);
+}
+
+void MainIOCP::Broadcast(stringstream& SendStream)
+{
+	stSOCKETINFO* client = new stSOCKETINFO;
+
+	for (const auto& kvp : SessionSocket)
+	{
+		client->socket = kvp.second;
+		CopyMemory(client->messageBuffer, (CHAR*)SendStream.str().c_str(), SendStream.str().length());
+		client->dataBuf.buf = client->messageBuffer;
+		client->dataBuf.len = SendStream.str().length();
+
+		Send(client);
+	}
 }

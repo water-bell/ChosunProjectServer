@@ -71,6 +71,7 @@ bool DBConnector::SignUpAccount(const string& Id, const string& Password)
 		return FALSE;
 	}
 
+	printf_s("[DB] 회원 가입 성공\n");
 	bResult = TRUE;
 
 	return bResult;

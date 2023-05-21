@@ -1,0 +1,4 @@
+﻿  Chosun_IOCP_Client.cpp
+C:\Users\H87M-P33\Desktop\IOCP\PacketDll\CommonClass.h(103,23): warning C4251: 'cCharactersInfo::players': class 'std::map<int,cCharacter,std::less<int>,std::allocator<std::pair<const int,cCharacter>>>'에서는 class 'cCharactersInfo'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
+C:\Users\H87M-P33\Desktop\IOCP\PacketDll\CommonClass.h(103): message : 'std::map<int,cCharacter,std::less<int>,std::allocator<std::pair<const int,cCharacter>>>' 선언을 참조하십시오.
+  Chosun_IOCP_Client.vcxproj -> C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Client\Debug\Chosun_IOCP_Client.exe
