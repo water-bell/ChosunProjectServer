@@ -23,7 +23,6 @@ MainIOCP::MainIOCP()
 {
 	InitializeCriticalSection(&csPlayers);
 
-	//DB立加 内靛 累己
 	if (Conn.Connect(DB_ADDRESS, DB_ID, DB_PW, DB_SCHEMA, DB_PORT))
 	{
 		printf_s("[INFO] DB 立加 己傍\n");
@@ -43,6 +42,7 @@ MainIOCP::MainIOCP()
 MainIOCP::~MainIOCP()
 {
 	WSACleanup();
+
 	if (SocketInfo)
 	{
 		delete[] SocketInfo;
@@ -213,7 +213,7 @@ void MainIOCP::Login(stringstream& RecvStream, stSOCKETINFO* pSocket)
 
 	stringstream SendStream;
 	SendStream << EPacketType::LOGIN << endl;
-	SendStream << Conn.SignUpAccount(Id, Pw) << endl;
+	SendStream << Conn.SearchAccount(Id, Pw) << endl;
 
 	CopyMemory(pSocket->messageBuffer, (CHAR*)SendStream.str().c_str(), SendStream.str().length());
 	pSocket->dataBuf.buf = pSocket->messageBuffer;

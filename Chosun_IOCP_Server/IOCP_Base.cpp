@@ -54,14 +54,14 @@ bool IOCPBase::Initialize()
 		printf_s("ERROR: 소켓에 IP주소와 포트#을 바인드할 수 없습니다.");
 		return 0;
 	}
-	printf_s("바인딩 완료\n");
+
 	//접속 대기 상태로 전환
 	if (::listen(ListenSocket, SOMAXCONN) == SOCKET_ERROR)
 	{
 		printf_s("ERROR: 리슨 상태로 전환할 수 없습니다.");
 		return 0;
 	}
-	printf_s("리슨 상태 전환");
+
 	return TRUE;
 }
 
@@ -86,8 +86,12 @@ void IOCPBase::StartServer()
 
 		if (clientSocket == INVALID_SOCKET)
 		{
-			printf_s("ERROR: 클라이언트 접속 실패");
+			printf_s("ERROR: 클라이언트 접속 실패\n");
 			return;
+		}
+		else
+		{
+			printf_s("[Info] 새 클라이언트가 연결되었습니다\n");
 		}
 
 

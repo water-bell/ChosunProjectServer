@@ -1,2 +1,21 @@
-﻿  DBConnector.cpp
+﻿  IOCP_Base.cpp
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\IOCP_Base.cpp(105,80): warning C4311: '형식 캐스트': 'stSOCKETINFO *'에서 'DWORD'(으)로 포인터가 잘립니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\IOCP_Base.cpp(105,80): warning C4302: '형식 캐스트': 'stSOCKETINFO *'에서 'DWORD'(으)로 잘립니다.
+  Main_IOCP.cpp
+C:\Users\H87M-P33\Desktop\IOCP\PacketDll\CommonClass.h(103,23): warning C4251: 'cCharactersInfo::players': class 'std::map<int,cCharacter,std::less<int>,std::allocator<std::pair<const int,cCharacter>>>'에서는 class 'cCharactersInfo'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
+C:\Users\H87M-P33\Desktop\IOCP\PacketDll\CommonClass.h(103): message : 'std::map<int,cCharacter,std::less<int>,std::allocator<std::pair<const int,cCharacter>>>' 선언을 참조하십시오.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(142,13): warning C4477: 'printf_s' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'SOCKET'입니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(142,13): message : 서식 문자열에서 '%lld'을(를) 사용하는 것이 좋습니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(142,13): message : 서식 문자열에서 '%Id'을(를) 사용하는 것이 좋습니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(142,13): message : 서식 문자열에서 '%I64d'을(를) 사용하는 것이 좋습니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(120,7): warning C4101: 'nResult' :참조되지 않은 지역 변수입니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(123,8): warning C4101: 'sendBytes' :참조되지 않은 지역 변수입니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(191,11): warning C4477: 'printf_s' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'std::string'입니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(191,11): warning C4477: 'printf_s' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'std::string'입니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(199,50): warning C4267: '=': 'size_t'에서 'ULONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(212,11): warning C4477: 'printf_s' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'std::string'입니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(212,11): warning C4477: 'printf_s' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'std::string'입니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(220,50): warning C4267: '=': 'size_t'에서 'ULONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\Main_IOCP.cpp(243,50): warning C4267: '=': 'size_t'에서 'ULONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
   Chosun_IOCP_Server.vcxproj -> C:\Users\H87M-P33\Desktop\IOCP\Chosun_IOCP_Server\x64\Debug\Chosun_IOCP_Server.exe

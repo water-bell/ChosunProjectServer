@@ -28,8 +28,6 @@ struct stSOCKETINFO
 	int				sendBytes;
 };
 
-
-
 int main()
 {
 	WSADATA wsaData;
@@ -84,18 +82,27 @@ int main()
 	RecvStream << szBuffer;
 	RecvStream >> packetType;
 
-	if (RecvStream >> result)
-	{
-		if (packetType == EPacketType::SIGNUP)
-		{
-			cout << "회원가입 성공" << endl;
-		}
-	}
-	else
+	if (!(RecvStream >> result))
 	{
 		cout << "Error: 결과 값을 불러오지 못했습니다." << endl;
 	}
 	
+	switch (packetType)
+	{
+	case EPacketType::SIGNUP:
+		if (result)
+			printf_s("회원가입되었습니다.\n");
+		else
+			printf_s("이미 존재하는 아이디입니다.\n");
+		break;
+	case EPacketType::LOGIN:
+		if (result)
+			printf_s("로그인 성공.\n");
+		else
+			printf_s("존재하지 않는 아이디입니다.\n");
+		break;
+	}
+
 
 	closesocket(clientSocket);
 	WSACleanup();
